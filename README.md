@@ -20,9 +20,26 @@ Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/tryit.asp?
 - find all customers with postal code 1010. Returns 3 records.
 - find the phone number for the supplier with the id 11. Should be (010) 9984510.
 - list first 10 orders placed, sorted descending by the order date. The order with date 1997-02-12 should be at the top.
+SELECT * FROM Orders  ORDER BY OrderDate DESC LIMIT 10;
+
 - find all customers that live in London, Madrid, or Brazil. Returns 18 records.
+
+SELECT * FROM Customers WHERE city in ('London','Madrid') OR country = 'Brazil';
+
+
 - add a customer record for _"The Shire"_, the contact name is _"Bilbo Baggins"_ the address is _"1 Hobbit-Hole"_ in _"Bag End"_, postal code _"111"_ and the country is _"Middle Earth"_.
+
+INSERT INTO Customers (CustomerName, ContactName, Address, PostalCode, Country)
+VALUES ('The_Shire', 'Bilbo_Boggins', '1_Rabbit_Hole_Bog_End', 111, 'Middle_Earth')
+
+SELECT * FROM Customers ORDER BY CustomerID DESC LIMIT 2;
+
+
 - update _Bilbo Baggins_ record so that the postal code changes to _"11122"_.
+
+UPDATE Customers
+SET CustomerName = 'Mansioning Scimitar', ContactName = 'Bogo Rebbins', Address= '333 Non Schuls Wayward Inn', City = 'Escandaria', PostalCode = 11122, Country = 'Butacontry'
+WHERE CustomerID = 92;
 
 **Clicking the `Restore Database` button in the page will repopulate the database with the original data and discard all changes you have made**.
 
